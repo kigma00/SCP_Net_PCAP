@@ -91,7 +91,7 @@ int main(int argc, char* argv[]) {
 	        int datalength = header->caplen-( 14 + 20 + 20);
 
 		//tcp filter
-	        if(iph->ProtocolID == IPPROTO_TCP)
+	        if(iph->ProtocolID == IPPROTO_TCP & ntohs(rth->ether_type) == 0x800)
 	        {
 		    //source print(mac, ip, port)
 	            printf("<source Info>\n");
