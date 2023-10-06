@@ -90,8 +90,8 @@ int main(int argc, char* argv[]) {
 	        u_char* data = (u_char*)(packet + 14 + 20 + 20);
 	        int datalength = header->caplen-( 14 + 20 + 20);
 
-		//tcp filter
-	        if(iph->ProtocolID == IPPROTO_TCP & ntohs(rth->ether_type) == 0x800)
+		//tcp, ipv4 filter
+	        if(iph->ProtocolID == IPPROTO_TCP && ntohs(rth->ether_type) == 0x800)
 	        {
 		    //source print(mac, ip, port)
 	            printf("<source Info>\n");
